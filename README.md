@@ -25,8 +25,8 @@ To get a local copy up and running, follow these simple steps.
 
 #### Prerequisites
 
-- Node.js
-- pnpm (or yarn)
+- Nest.js
+- pnpm 
 
 #### Installation
 
@@ -37,7 +37,7 @@ To get a local copy up and running, follow these simple steps.
 
 2. **Install NPM packages**
     ```sh
-    cd cuckoo
+    cd server
     npm install
     ```
 
