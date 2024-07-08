@@ -32,7 +32,7 @@ To get a local copy up and running, follow these simple steps.
 
 1. **Clone the repo**
     ```sh
-    (https://github.com/Anandu-Vijayan/Cockoo-Chat-APP.git)
+    https://github.com/Anandu-Vijayan/Cockoo-Chat-APP.git
     ```
 
 2. **Install NPM packages**
