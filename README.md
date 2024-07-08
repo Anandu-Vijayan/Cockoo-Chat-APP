@@ -1,8 +1,5 @@
-Here's a GitHub description for your scalable chat application, Cuckoo, built with React, NestJS, MongoDB, and GraphQL:
 
----
-
-## Cuckoo - Scalable Chat Application
+## Cuckoo - Chat Application
 
 Cuckoo is a highly scalable chat application built using modern web technologies. Designed for seamless communication, Cuckoo leverages the power of React, NestJS, MongoDB, and GraphQL to provide a robust and efficient chat experience.
 
