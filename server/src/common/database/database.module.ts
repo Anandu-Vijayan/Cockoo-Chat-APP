@@ -1,6 +1,6 @@
 import { Logger, Module } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
-import { MongooseModule } from "@nestjs/mongoose";
+import { ModelDefinition, MongooseModule } from "@nestjs/mongoose";
 
 
 
@@ -8,8 +8,8 @@ import { MongooseModule } from "@nestjs/mongoose";
     imports: [MongooseModule.forRootAsync({
         useFactory: (configService: ConfigService) => ({
             uri: configService.get<string>('MONGODB_URI'),
-            connectionFactory:(connection)=>{
-                Logger.log('Database Connected','MongooseModule');
+            connectionFactory: (connection) => {
+                Logger.log('Database Connected', 'MongooseModule');
                 return connection
             }
         }),
@@ -19,4 +19,11 @@ import { MongooseModule } from "@nestjs/mongoose";
     providers: [],
 })
 
-export class DatabaseModule { }  
+export class DatabaseModule {
+    static forFeature(models: ModelDefinition[]) {
+        return MongooseModule.forFeature(models)
+
+       
+
+    }
+}  
