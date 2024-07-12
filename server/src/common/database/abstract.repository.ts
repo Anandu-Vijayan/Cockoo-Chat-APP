@@ -1,4 +1,4 @@
-import { FilterQuery, Model, Types } from "mongoose";
+import { FilterQuery, Model, Types, UpdateQuery } from "mongoose";
 import { AbstractEntity } from "./abstract.entity";
 import { Logger, NotFoundException } from "@nestjs/common";
 
@@ -25,7 +25,7 @@ export abstract class AbstractRespository<T extends AbstractEntity> {
     }
     async findOneAndUpdate(
         filterQuery: FilterQuery<T>
-        , update: Partial<T>,
+        , update: UpdateQuery<T>,
     ): Promise<T> {
         const document = await this.model.findOneAndUpdate(filterQuery, update, { lean: true, new: true });
         if (!document) {
@@ -39,7 +39,7 @@ export abstract class AbstractRespository<T extends AbstractEntity> {
         return this.model.find(filterQuery, {}, { lean: true, }) as unknown as T[];
     }
 
-// lean: true used for return the plain data from mongodb
+    // lean: true used for return the plain data from mongodb
 
     async findOneAndDelete(filterQuery: FilterQuery<T>): Promise<T> {
         return this.model.findOneAndDelete(filterQuery, { lean: true }) as unknown as T;
