@@ -43,7 +43,10 @@ importers:
         version: 17.13.3
       migrate-mongo:
         specifier: ^11.0.0
-        version: 11.0.0(mongodb@6.7.0)
+        version: 11.0.0(mongodb@6.8.0)
+      mongodb:
+        specifier: ^6.8.0
+        version: 6.8.0
       mongoose:
         specifier: ^8.5.0
         version: 8.5.0
@@ -2534,6 +2537,33 @@ packages:
       socks:
         optional: true
 
+  mongodb@6.8.0:
+    resolution: {integrity: sha512-HGQ9NWDle5WvwMnrvUxsFYPd3JEbqD3RgABHBQRuoCEND0qzhsd0iH5ypHsf1eJ+sXmvmyKpP+FLOKY8Il7jMw==}
+    engines: {node: '>=16.20.1'}
+    peerDependencies:
+      '@aws-sdk/credential-providers': ^3.188.0
+      '@mongodb-js/zstd': ^1.1.0
+      gcp-metadata: ^5.2.0
+      kerberos: ^2.0.1
+      mongodb-client-encryption: '>=6.0.0 <7'
+      snappy: ^7.2.2
+      socks: ^2.7.1
+    peerDependenciesMeta:
+      '@aws-sdk/credential-providers':
+        optional: true
+      '@mongodb-js/zstd':
+        optional: true
+      gcp-metadata:
+        optional: true
+      kerberos:
+        optional: true
+      mongodb-client-encryption:
+        optional: true
+      snappy:
+        optional: true
+      socks:
+        optional: true
+
   mongoose@8.5.0:
     resolution: {integrity: sha512-iGgZvgO+fIgX1AQMehkG+Wj8qrWc9it8vUZrSKWjrebgfwHTqUcIdTgWK8mT1us1xd83NOQxiuGbg9ZJtLxs2Q==}
     engines: {node: '>=16.20.1'}
@@ -4501,7 +4531,7 @@ snapshots:
   '@types/migrate-mongo@10.0.4':
     dependencies:
       '@types/node': 20.14.10
-      mongodb: 6.7.0
+      mongodb: 6.8.0
     transitivePeerDependencies:
       - '@aws-sdk/credential-providers'
       - '@mongodb-js/zstd'
@@ -6306,7 +6336,7 @@ snapshots:
       braces: 3.0.3
       picomatch: 2.3.1
 
-  migrate-mongo@11.0.0(mongodb@6.7.0):
+  migrate-mongo@11.0.0(mongodb@6.8.0):
     dependencies:
       cli-table3: 0.6.5
       commander: 9.5.0
@@ -6314,7 +6344,7 @@ snapshots:
       fn-args: 5.0.0
       fs-extra: 10.1.0
       lodash: 4.17.21
-      mongodb: 6.7.0
+      mongodb: 6.8.0
       p-each-series: 2.2.0
 
   mime-db@1.52.0: {}
@@ -6364,6 +6394,12 @@ snapshots:
       whatwg-url: 13.0.0
 
   mongodb@6.7.0:
+    dependencies:
+      '@mongodb-js/saslprep': 1.1.7
+      bson: 6.8.0
+      mongodb-connection-string-url: 3.0.1
+
+  mongodb@6.8.0:
     dependencies:
       '@mongodb-js/saslprep': 1.1.7
       bson: 6.8.0

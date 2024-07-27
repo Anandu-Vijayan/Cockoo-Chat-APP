@@ -76,7 +76,10 @@ email
 
 ### 13 Modify logging config for production
 
-### 14 DB Migrations
+### 14 DB Migrations Up and Down
 
 - `pnpm i migrate-mongo`
--typr:`pnpm i -D @types/migrate-mongo`
+- type:`pnpm i -D @types/migrate-mongo`
+- `pnpm i mongodb`
+- create Migration for user-email-index.ts
+- we can use this for validation to make unique emails

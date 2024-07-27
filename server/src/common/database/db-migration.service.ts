@@ -10,22 +10,22 @@ export class DbMigrationService implements OnModuleInit{
         //DB connection details for the migration tool
         mongodb:{
             databaseName:this.configService.getOrThrow<string>('MONGO_DB_NAME'),
-            url:this.configService.getOrThrow<string>('MONGODB_URI')
+            url:this.configService.getOrThrow<string>('MONGODB_URI'),
         },
         // Location of the migration Files
-        migrationsDir:`${__dirname}../../migrations`,
+        migrationsDir: `${__dirname}/../../migrations`,
         // collection thet migration mongo will use to keep track of the migration
         changelogCollectionName:'changelog',
-        migrationFileExtension:'.js',
+        migrationFileExtension:'.js', 
     }
     constructor(
         private readonly configService : ConfigService
     ){}
 
-    async onModuleInit(){
+    async onModuleInit(){ 
         
         config.set(this.dbMigrationsConfig);
         const {db,client} = await database.connect();
-        await up (db,client)  
+        await up (db,client);  
       }
 }
