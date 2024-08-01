@@ -2,6 +2,8 @@
 import { Container, CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import { RouterProvider } from "react-router-dom";
 import router from "./components/auth/Routes";
+import { ApolloProvider } from "@apollo/client";
+import client from "./constants/apollo-client";
 
 
 const darkTheme = createTheme({
@@ -10,8 +12,9 @@ const darkTheme = createTheme({
   },
 });
 
-function App() {
+function App() { 
   return (
+    <ApolloProvider client={client}>
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <Container>
@@ -19,6 +22,7 @@ function App() {
         <RouterProvider router={router} />
       </Container>
     </ThemeProvider>
+    </ApolloProvider>
   );
 }
 
