@@ -95,3 +95,13 @@ email
 ### 16 Create User
 -To fix Cors issue : set this 
 "proxy":"http://localhost:4000"
+
+
+### 17 Backend Authentication with Passport
+-`pnpm install --save @nestjs/passport passport passport-local`
+-`pnpm install --save-dev @types/passport-local`
+-https://docs.nestjs.com/recipes/passport
+-we are using passport-local strategy for now
+ -it will accept a username and password and return a jwt token
+ -generate auth module:`nest g module auth`
+ -generate auth service:`nest g service auth`

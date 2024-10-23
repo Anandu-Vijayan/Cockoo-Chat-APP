@@ -9,7 +9,7 @@ async function bootstrap() {
   app.useLogger(app.get(Logger));
   app.enableCors({
     origin:'*',
-    methods:'GET,HEAD,PUT,PAYCH,POST,DELETE',
+    methods:'GET,HEAD,PUT,PATCH,POST,DELETE',
     preflightContinue:false,
     optionsSuccessStatus:204,
   });

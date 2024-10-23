@@ -1,8 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { CreateUserInput } from './dto/create-user.input';
 import { UpdateUserInput } from './dto/update-user.input';
 import { UsersRepository } from './users.repository';
 import * as bcrypt from 'bcrypt'
+
 
 @Injectable()
 export class UsersService {
@@ -25,7 +26,7 @@ export class UsersService {
   }
 
   async update(_id: string, updateUserInput: UpdateUserInput) {
-    if(updateUserInput.password){
+    if (updateUserInput.password) {
       updateUserInput.password = await this.hashPassword(updateUserInput.password);
     }
     return this.usersRepository.findOneAndUpdate({ _id }, {
@@ -35,7 +36,23 @@ export class UsersService {
     })
   }
 
-  async remove(_id:string) {
-    return this.usersRepository.findOneAndDelete({_id}); 
+  async remove(_id: string) {
+    return this.usersRepository.findOneAndDelete({ _id });
+  }
+
+  async verifyUser(email: string, password: string) {
+    const user = await this.usersRepository.findOne({ email });
+  
+    //user not found scenario is handled in the abstract repository
+  
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+  
+    if (!isPasswordValid) {
+      throw new UnauthorizedException('Invalid Cridentials')
+    }
+  
+    return user;
   }
 }
+
+
